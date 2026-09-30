@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+  <defs>
+    <pattern id="mesh" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="4" fill="#5a4535"/>
+      <circle cx="2" cy="2" r="1.1" fill="#3c2c21"/>
+    </pattern>
+    <g id="flower">
+      <g fill="#efe5d3" stroke="#3c2c21" stroke-width=".8">
+        <ellipse cx="0" cy="-11" rx="6.5" ry="10"/>
+        <ellipse cx="0" cy="-11" rx="6.5" ry="10" transform="rotate(72)"/>
+        <ellipse cx="0" cy="-11" rx="6.5" ry="10" transform="rotate(144)"/>
+        <ellipse cx="0" cy="-11" rx="6.5" ry="10" transform="rotate(216)"/>
+        <ellipse cx="0" cy="-11" rx="6.5" ry="10" transform="rotate(288)"/>
+      </g>
+      <g fill="#3c2c21">
+        <ellipse cx="0" cy="-12" rx="2" ry="4"/>
+        <ellipse cx="0" cy="-12" rx="2" ry="4" transform="rotate(72)"/>
+        <ellipse cx="0" cy="-12" rx="2" ry="4" transform="rotate(144)"/>
+        <ellipse cx="0" cy="-12" rx="2" ry="4" transform="rotate(216)"/>
+        <ellipse cx="0" cy="-12" rx="2" ry="4" transform="rotate(288)"/>
+      </g>
+      <circle r="4.5" fill="#efe5d3" stroke="#3c2c21" stroke-width=".8"/>
+      <path d="M-2.5 0h5M0-2.5v5" stroke="#3c2c21" stroke-width="1.2"/>
+    </g>
+    <g id="leaf">
+      <path d="M0 0C4-6 12-8 18-6 12-2 6 2 0 0Z" fill="#efe5d3" stroke="#3c2c21" stroke-width=".7"/>
+      <path d="M1 0C6-3 11-4 16-5" stroke="#3c2c21" stroke-width=".6" fill="none"/>
+    </g>
+  </defs>
+  <rect width="80" height="80" fill="url(#mesh)"/>
+  <g stroke="#efe5d3" stroke-width="2.2" fill="none" stroke-linecap="round">
+    <path d="M20 20C35 30 45 50 60 60"/>
+    <path d="M60 20C50 30 40 30 30 45"/>
+  </g>
+  <use href="#flower" x="20" y="20"/>
+  <use href="#flower" x="60" y="60"/>
+  <use href="#leaf" x="38" y="38" transform="rotate(-40 38 38)"/>
+  <use href="#leaf" x="44" y="30" transform="rotate(120 44 30)"/>
+  <circle cx="62" cy="18" r="3" fill="#efe5d3" stroke="#3c2c21" stroke-width=".7"/>
+  <circle cx="18" cy="62" r="3" fill="#efe5d3" stroke="#3c2c21" stroke-width=".7"/>
+  <circle cx="70" cy="30" r="1.8" fill="#efe5d3"/>
+  <circle cx="10" cy="48" r="1.8" fill="#efe5d3"/>
+</svg>

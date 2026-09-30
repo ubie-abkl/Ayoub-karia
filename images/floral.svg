@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d8d0b6"/>
+      <stop offset=".5" stop-color="#a39c74"/>
+      <stop offset="1" stop-color="#5c5a36"/>
+    </linearGradient>
+    <radialGradient id="petal" cx="15%" cy="50%" r="95%">
+      <stop offset="0" stop-color="#8d8456"/>
+      <stop offset=".35" stop-color="#e3dcc6"/>
+      <stop offset="1" stop-color="#f3efe2"/>
+    </radialGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9c9563"/>
+      <stop offset="1" stop-color="#4d4b28"/>
+    </linearGradient>
+    <linearGradient id="blade" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#2f301a"/>
+      <stop offset="1" stop-color="#77744a"/>
+    </linearGradient>
+    <radialGradient id="rose" cx="50%" cy="50%" r="60%">
+      <stop offset="0" stop-color="#6b6436"/>
+      <stop offset=".5" stop-color="#bdb48c"/>
+      <stop offset="1" stop-color="#e4dcc2"/>
+    </radialGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="1.4"/></filter>
+    <filter id="blur"><feGaussianBlur stdDeviation="5"/></filter>
+  </defs>
+
+  <rect width="400" height="800" fill="url(#bg)"/>
+
+  <!-- feuille arrière (haut droite) -->
+  <g filter="url(#soft)">
+    <path d="M440 20C340 40 250 150 240 330c90-20 190-120 200-310Z" fill="url(#leaf)"/>
+    <g stroke="#3c3b1e" stroke-opacity=".45" stroke-width="2" fill="none">
+      <path d="M440 20C380 110 300 230 240 330"/>
+      <path d="M400 80c-20 0-50 0-80 20M380 120c-10 20-10 50 20 70M350 170c-30 0-60 10-80 40M330 210c0 25 20 50 60 55M300 250c-20 10-40 30-45 60"/>
+    </g>
+  </g>
+
+  <!-- grand lys (haut gauche) -->
+  <g transform="translate(70 190)" filter="url(#soft)">
+    <g fill="url(#petal)" stroke="#b3ab88" stroke-opacity=".6" stroke-width="1">
+      <path d="M0 0C40-50 150-90 230-60 170-10 70 20 0 0Z" transform="rotate(-70)"/>
+      <path d="M0 0C40-50 150-90 230-60 170-10 70 20 0 0Z" transform="rotate(-10)"/>
+      <path d="M0 0C40-50 150-90 230-60 170-10 70 20 0 0Z" transform="rotate(55)"/>
+      <path d="M0 0C40-50 150-90 230-60 170-10 70 20 0 0Z" transform="rotate(125)"/>
+      <path d="M0 0C40-50 150-90 230-60 170-10 70 20 0 0Z" transform="rotate(190)"/>
+    </g>
+    <g stroke="#6d6538" stroke-width="2" stroke-linecap="round">
+      <path d="M0 0 60 40M0 0 70 20M0 0 75 55M0 0 50 60M0 0 80 35"/>
+    </g>
+    <g fill="#4a4221">
+      <ellipse cx="60" cy="40" rx="6" ry="3"/><ellipse cx="70" cy="20" rx="6" ry="3"/>
+      <ellipse cx="75" cy="55" rx="6" ry="3"/><ellipse cx="50" cy="60" rx="6" ry="3"/>
+      <ellipse cx="80" cy="35" rx="6" ry="3"/>
+    </g>
+  </g>
+
+  <!-- pétales flous (milieu) -->
+  <g filter="url(#blur)" opacity=".75">
+    <ellipse cx="-10" cy="470" rx="90" ry="140" fill="#e9e3d0"/>
+    <ellipse cx="420" cy="430" rx="80" ry="160" fill="#7a7548"/>
+  </g>
+
+  <!-- feuilles longues (bas gauche) -->
+  <g filter="url(#soft)">
+    <path d="M-40 800C20 650 120 560 260 520 150 600 90 700 60 800Z" fill="url(#blade)"/>
+    <path d="M-30 740C40 640 120 600 200 590 120 640 60 700 20 800Z" fill="#4a4a2a" opacity=".85"/>
+    <path d="M60 800C110 700 190 640 300 610 210 670 160 730 140 800Z" fill="url(#blade)" opacity=".9"/>
+    <g stroke="#a19c6c" stroke-opacity=".35" stroke-width="1.2" fill="none">
+      <path d="M-20 790C60 660 150 580 250 525"/><path d="M80 795C140 700 210 650 290 615"/>
+    </g>
+  </g>
+
+  <!-- rose (bas droite) -->
+  <g transform="translate(330 690)" filter="url(#soft)">
+    <circle r="110" fill="url(#rose)"/>
+    <g fill="none" stroke="#6f6840" stroke-opacity=".6" stroke-width="2.5">
+      <path d="M-80 10C-70-60 10-90 70-50"/>
+      <path d="M-60 40C-60-20 0-50 40-30"/>
+      <path d="M-30 30C-30-10 10-20 20 0"/>
+      <path d="M90 30C70 80 10 100-50 80"/>
+      <path d="M60 20C50 50 10 60-20 50"/>
+    </g>
+    <circle r="16" fill="#4f4824" opacity=".7"/>
+  </g>
+</svg>
