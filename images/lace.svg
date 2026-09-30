@@ -1,43 +1,49 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
   <defs>
-    <pattern id="mesh" width="4" height="4" patternUnits="userSpaceOnUse">
-      <rect width="4" height="4" fill="#5a4535"/>
-      <circle cx="2" cy="2" r="1.1" fill="#3c2c21"/>
+    <pattern id="mesh" width="2.5" height="2.5" patternUnits="userSpaceOnUse">
+      <rect width="2.5" height="2.5" fill="#5a4535"/>
+      <circle cx="1.25" cy="1.25" r=".55" fill="#3e2e23"/>
+      <path d="M0 0l2.5 2.5M2.5 0 0 2.5" stroke="#8a735f" stroke-width=".18"/>
     </pattern>
-    <g id="flower">
-      <g fill="#efe5d3" stroke="#3c2c21" stroke-width=".8">
-        <ellipse cx="0" cy="-11" rx="6.5" ry="10"/>
-        <ellipse cx="0" cy="-11" rx="6.5" ry="10" transform="rotate(72)"/>
-        <ellipse cx="0" cy="-11" rx="6.5" ry="10" transform="rotate(144)"/>
-        <ellipse cx="0" cy="-11" rx="6.5" ry="10" transform="rotate(216)"/>
-        <ellipse cx="0" cy="-11" rx="6.5" ry="10" transform="rotate(288)"/>
+    <g id="flower" stroke="#3c2c21" stroke-width=".35">
+      <g fill="#efe5d3">
+        <path id="pt" d="M0-2.6C-3-4.5-3.4-9 0-10.4 3.4-9 3-4.5 0-2.6Z"/>
+        <use href="#pt" transform="rotate(60)"/><use href="#pt" transform="rotate(120)"/>
+        <use href="#pt" transform="rotate(180)"/><use href="#pt" transform="rotate(240)"/>
+        <use href="#pt" transform="rotate(300)"/>
       </g>
-      <g fill="#3c2c21">
-        <ellipse cx="0" cy="-12" rx="2" ry="4"/>
-        <ellipse cx="0" cy="-12" rx="2" ry="4" transform="rotate(72)"/>
-        <ellipse cx="0" cy="-12" rx="2" ry="4" transform="rotate(144)"/>
-        <ellipse cx="0" cy="-12" rx="2" ry="4" transform="rotate(216)"/>
-        <ellipse cx="0" cy="-12" rx="2" ry="4" transform="rotate(288)"/>
+      <g fill="none" stroke="#5a4535" stroke-width=".4">
+        <path id="vn" d="M0-3.6V-8.6"/>
+        <use href="#vn" transform="rotate(60)"/><use href="#vn" transform="rotate(120)"/>
+        <use href="#vn" transform="rotate(180)"/><use href="#vn" transform="rotate(240)"/>
+        <use href="#vn" transform="rotate(300)"/>
       </g>
-      <circle r="4.5" fill="#efe5d3" stroke="#3c2c21" stroke-width=".8"/>
-      <path d="M-2.5 0h5M0-2.5v5" stroke="#3c2c21" stroke-width="1.2"/>
+      <circle r="2.4" fill="#efe5d3"/>
+      <circle r="1" fill="#5a4535" stroke="none"/>
     </g>
-    <g id="leaf">
-      <path d="M0 0C4-6 12-8 18-6 12-2 6 2 0 0Z" fill="#efe5d3" stroke="#3c2c21" stroke-width=".7"/>
-      <path d="M1 0C6-3 11-4 16-5" stroke="#3c2c21" stroke-width=".6" fill="none"/>
+    <g id="leaf" stroke="#3c2c21" stroke-width=".3">
+      <path d="M0 0C2.5-3 7-4 10-3 7-1 3.5 1 0 0Z" fill="#efe5d3"/>
+      <path d="M.6 0C3.5-1.6 6.5-2.3 9.4-2.8" fill="none" stroke="#5a4535" stroke-width=".3"/>
+    </g>
+    <g id="dots" fill="#efe5d3">
+      <circle r=".9"/><circle cx="2.4" cy="-1" r=".6"/><circle cx="4.2" cy="-1.4" r=".45"/>
     </g>
   </defs>
-  <rect width="80" height="80" fill="url(#mesh)"/>
-  <g stroke="#efe5d3" stroke-width="2.2" fill="none" stroke-linecap="round">
-    <path d="M20 20C35 30 45 50 60 60"/>
-    <path d="M60 20C50 30 40 30 30 45"/>
+  <rect width="60" height="60" fill="url(#mesh)"/>
+  <g stroke="#efe5d3" stroke-width=".9" fill="none" stroke-linecap="round">
+    <path d="M15 15C24 20 28 32 45 45"/>
+    <path d="M45 15C38 22 32 22 24 33"/>
+    <path d="M0 45C6 42 10 40 15 45M45 0C42 6 40 10 45 15"/>
   </g>
-  <use href="#flower" x="20" y="20"/>
-  <use href="#flower" x="60" y="60"/>
-  <use href="#leaf" x="38" y="38" transform="rotate(-40 38 38)"/>
-  <use href="#leaf" x="44" y="30" transform="rotate(120 44 30)"/>
-  <circle cx="62" cy="18" r="3" fill="#efe5d3" stroke="#3c2c21" stroke-width=".7"/>
-  <circle cx="18" cy="62" r="3" fill="#efe5d3" stroke="#3c2c21" stroke-width=".7"/>
-  <circle cx="70" cy="30" r="1.8" fill="#efe5d3"/>
-  <circle cx="10" cy="48" r="1.8" fill="#efe5d3"/>
+  <use href="#flower" x="15" y="15"/>
+  <use href="#flower" x="45" y="45"/>
+  <use href="#flower" transform="translate(45 15) scale(.55)"/>
+  <use href="#flower" transform="translate(15 45) scale(.55)"/>
+  <use href="#leaf" x="29" y="29" transform="rotate(-40 29 29)"/>
+  <use href="#leaf" x="33" y="24" transform="rotate(130 33 24)"/>
+  <use href="#leaf" x="36" y="38" transform="rotate(35 36 38)"/>
+  <use href="#dots" x="26" y="8"/>
+  <use href="#dots" x="52" y="30" transform="rotate(90 52 30)"/>
+  <use href="#dots" x="6" y="28"/>
+  <use href="#dots" x="32" y="54"/>
 </svg>

@@ -57,6 +57,83 @@
     items.forEach(function (el) { el.classList.add("is-visible"); });
   }
 
+  /* ---------- Formulaire de présence ----------
+     Sur le site publié (GitHub Pages, Netlify…), renseignez FORM_ENDPOINT
+     avec l'adresse d'un formulaire Formspree (https://formspree.io) :
+     chaque réponse vous arrive alors par e-mail. */
+  var FORM_ENDPOINT = "";
+
+  var form = document.getElementById("rsvpForm");
+  var errorBox = document.getElementById("rsvpError");
+  var submitBtn = document.getElementById("rsvpSubmit");
+  var guestsField = document.getElementById("guestsField");
+
+  form.addEventListener("change", function (e) {
+    if (e.target.name === "attending") guestsField.hidden = e.target.value === "non";
+  });
+
+  function showError(msg) { errorBox.textContent = msg; errorBox.hidden = false; }
+
+  function saveToArtifact(data) {
+    // Dans l'aperçu Claude, les réponses sont gardées dans la base de la page.
+    if (!window.claude || !window.claude.use) return Promise.resolve(false);
+    return Promise.all([window.claude.use("db"), window.claude.use("user")]).then(function (r) {
+      var db = r[0], user = r[1];
+      if (!db || !user) return false;
+      return user.id().then(function (id) {
+        if (!id) return false;
+        return db.doc("rsvp/" + id).set(data).then(function () { return true; });
+      });
+    });
+  }
+
+  function saveToEndpoint(data) {
+    if (!FORM_ENDPOINT) return Promise.resolve(false);
+    return fetch(FORM_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(data)
+    }).then(function (res) {
+      if (!res.ok) throw new Error("http " + res.status);
+      return true;
+    });
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    errorBox.hidden = true;
+    var fd = new FormData(form);
+    var name = (fd.get("name") || "").trim();
+    var attending = fd.get("attending");
+    if (!name) return showError("Merci d'indiquer votre nom et prénom.");
+    if (!attending) return showError("Merci de nous dire si vous serez présent(e).");
+
+    var data = {
+      nom: name,
+      presence: attending,
+      personnes: attending === "oui" ? Number(fd.get("guests")) : 0,
+      telephone: (fd.get("phone") || "").trim(),
+      message: (fd.get("message") || "").trim(),
+      date: new Date().toISOString()
+    };
+
+    submitBtn.disabled = true;
+    saveToEndpoint(data)
+      .then(function (ok) { return ok || saveToArtifact(data); })
+      .then(function (ok) {
+        if (!ok) throw new Error("no backend");
+        form.hidden = true;
+        document.getElementById("rsvpThanksText").textContent = attending === "oui"
+          ? "Votre réponse a bien été enregistrée. Nous avons hâte de vous voir !"
+          : "Votre réponse a bien été enregistrée. Vous nous manquerez.";
+        document.getElementById("rsvpThanks").hidden = false;
+      })
+      .catch(function () {
+        showError("Votre réponse n'a pas pu être envoyée. Réessayez dans un instant ou contactez directement les mariés.");
+      })
+      .then(function () { submitBtn.disabled = false; });
+  });
+
   /* ---------- Compte à rebours ---------- */
   var target = new Date("2026-11-06T16:00:00+01:00").getTime();
   var units = {};
