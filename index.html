@@ -10,7 +10,7 @@
   <meta property="og:description" content="Nous avons l'honneur de vous convier à notre mariage le 6 novembre 2026.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,500;1,600&family=Playfair+Display:ital,wght@1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Italiana&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,500;1,600&family=Playfair+Display:ital,wght@1,400;1,500&family=Corinthia:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Italiana&family=Pinyon+Script&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="is-locked">
@@ -26,16 +26,10 @@
         <span class="env-card__date">06 / 11 / 26</span>
       </div>
 
-      <div class="env-pocket">
-        <svg class="env-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-          <line x1="0" y1="100" x2="50" y2="58" />
-          <line x1="100" y1="100" x2="50" y2="58" />
-        </svg>
-      </div>
+      <div class="env-pocket"><span class="linen" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
 
       <div class="env-flap-wrap">
-        <div class="env-flap">
-        </div>
+        <div class="env-flap"><span class="linen" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
       </div>
 
       <button class="seal" id="seal" type="button" aria-label="Ouvrir l'invitation">
@@ -56,9 +50,9 @@
           <circle cx="100" cy="100" r="62" fill="none" stroke="#e6d397" stroke-opacity=".55" stroke-width="2"/>
           <circle cx="100" cy="100" r="66" fill="none" stroke="#4d3d14" stroke-opacity=".35" stroke-width="3"/>
           <g font-family="'Pinyon Script', cursive" font-size="64" text-anchor="middle">
-            <text x="101.5" y="120" fill="#4d3d14" fill-opacity=".6">C&amp;A</text>
-            <text x="99" y="117.5" fill="#ecdca6" fill-opacity=".85">C&amp;A</text>
-            <text x="100" y="119" fill="#a88b44">C&amp;A</text>
+            <text x="101.5" y="120" fill="#4d3d14" fill-opacity=".6">C  A</text>
+            <text x="99" y="117.5" fill="#ecdca6" fill-opacity=".85">C  A</text>
+            <text x="100" y="119" fill="#a88b44">C  A</text>
           </g>
           <ellipse cx="72" cy="48" rx="26" ry="10" fill="#fff" opacity=".18" transform="rotate(-28 72 48)"/>
         </svg>
@@ -80,6 +74,7 @@
         <p class="arch__kicker">Save the date</p>
         <h1 class="arch__names">
           <span class="arch__n1">Cheima</span>
+          <span class="arch__and">&amp;</span>
           <span class="arch__n2">Amine</span>
         </h1>
         <p class="arch__text">ainsi que leurs familles ont l'honneur<br>de vous convier à leur mariage</p>
@@ -170,10 +165,6 @@
           <select id="rsvpGuests" name="guests">
             <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
           </select>
-        </div>
-        <div class="field">
-          <label for="rsvpPhone">Téléphone</label>
-          <input id="rsvpPhone" name="phone" type="tel" autocomplete="tel">
         </div>
         <div class="field">
           <label for="rsvpMessage">Un petit mot pour les mariés <small>(facultatif)</small></label>

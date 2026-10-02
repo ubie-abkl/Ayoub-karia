@@ -112,7 +112,6 @@
       nom: name,
       presence: attending,
       personnes: attending === "oui" ? Number(fd.get("guests")) : 0,
-      telephone: (fd.get("phone") || "").trim(),
       message: (fd.get("message") || "").trim(),
       date: new Date().toISOString()
     };

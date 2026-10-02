@@ -1,49 +1,83 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <defs>
-    <pattern id="mesh" width="2.5" height="2.5" patternUnits="userSpaceOnUse">
-      <rect width="2.5" height="2.5" fill="#5a4535"/>
-      <circle cx="1.25" cy="1.25" r=".55" fill="#3e2e23"/>
-      <path d="M0 0l2.5 2.5M2.5 0 0 2.5" stroke="#8a735f" stroke-width=".18"/>
+    <!-- tulle : fin filet hexagonal -->
+    <pattern id="net" width="3" height="5.2" patternUnits="userSpaceOnUse">
+      <rect width="3" height="5.2" fill="#4a382b"/>
+      <path d="M0 0l1.5.87v1.73L0 3.47M3 0 1.5.87M1.5 2.6 3 3.47M0 3.47V5.2M3 3.47V5.2" fill="none" stroke="#9c8a76" stroke-width=".22"/>
     </pattern>
-    <g id="flower" stroke="#3c2c21" stroke-width=".35">
-      <g fill="#efe5d3">
-        <path id="pt" d="M0-2.6C-3-4.5-3.4-9 0-10.4 3.4-9 3-4.5 0-2.6Z"/>
-        <use href="#pt" transform="rotate(60)"/><use href="#pt" transform="rotate(120)"/>
-        <use href="#pt" transform="rotate(180)"/><use href="#pt" transform="rotate(240)"/>
-        <use href="#pt" transform="rotate(300)"/>
-      </g>
-      <g fill="none" stroke="#5a4535" stroke-width=".4">
-        <path id="vn" d="M0-3.6V-8.6"/>
-        <use href="#vn" transform="rotate(60)"/><use href="#vn" transform="rotate(120)"/>
-        <use href="#vn" transform="rotate(180)"/><use href="#vn" transform="rotate(240)"/>
-        <use href="#vn" transform="rotate(300)"/>
-      </g>
-      <circle r="2.4" fill="#efe5d3"/>
-      <circle r="1" fill="#5a4535" stroke="none"/>
+
+    <!-- grande rosace -->
+    <g id="petal">
+      <path d="M0-5.2C-5.6-6.6-8.4-14 0-18.2 8.4-14 5.6-6.6 0-5.2Z" fill="#f0e6d4" stroke="#3a2b20" stroke-width=".35"/>
+      <path d="M0-8.2C-2.3-10-2.4-13.6 0-15.2 2.4-13.6 2.3-10 0-8.2Z" fill="#4a382b"/>
+      <circle cy="-16.6" r=".55" fill="#4a382b"/>
     </g>
-    <g id="leaf" stroke="#3c2c21" stroke-width=".3">
-      <path d="M0 0C2.5-3 7-4 10-3 7-1 3.5 1 0 0Z" fill="#efe5d3"/>
-      <path d="M.6 0C3.5-1.6 6.5-2.3 9.4-2.8" fill="none" stroke="#5a4535" stroke-width=".3"/>
+    <g id="rosette">
+      <use href="#petal"/>
+      <use href="#petal" transform="rotate(45)"/>
+      <use href="#petal" transform="rotate(90)"/>
+      <use href="#petal" transform="rotate(135)"/>
+      <use href="#petal" transform="rotate(180)"/>
+      <use href="#petal" transform="rotate(225)"/>
+      <use href="#petal" transform="rotate(270)"/>
+      <use href="#petal" transform="rotate(315)"/>
+      <circle r="6.2" fill="#f0e6d4" stroke="#3a2b20" stroke-width=".35"/>
+      <g fill="#4a382b">
+        <circle cy="-4.2" r=".7"/><circle cy="4.2" r=".7"/><circle cx="-4.2" r=".7"/><circle cx="4.2" r=".7"/>
+        <circle cx="2.97" cy="2.97" r=".7"/><circle cx="-2.97" cy="2.97" r=".7"/>
+        <circle cx="2.97" cy="-2.97" r=".7"/><circle cx="-2.97" cy="-2.97" r=".7"/>
+      </g>
+      <circle r="1.9" fill="#4a382b"/>
+      <path d="M-1.3 0h2.6M0-1.3v2.6" stroke="#f0e6d4" stroke-width=".5"/>
     </g>
-    <g id="dots" fill="#efe5d3">
-      <circle r=".9"/><circle cx="2.4" cy="-1" r=".6"/><circle cx="4.2" cy="-1.4" r=".45"/>
+
+    <!-- feuille festonnée avec jour central -->
+    <g id="leaf">
+      <path d="M0 0C3-3.4 7.5-4.6 11-3.8 12.4-3.4 13.4-2.4 14-1.2 12.6-.6 12.8.6 11.4 1 9.8 1.6 9.6 2.6 7.6 2.8 5.4 3 3 2.4 0 0Z" fill="#f0e6d4" stroke="#3a2b20" stroke-width=".3"/>
+      <path d="M2.2.2C4.6-1 8-1.7 11.2-1.4 8.4-.2 5.2.6 2.2.2Z" fill="#4a382b"/>
+    </g>
+    <!-- grappe de picots -->
+    <g id="picots" fill="#f0e6d4" stroke="#3a2b20" stroke-width=".2">
+      <circle r="1.1"/><circle cx="2.6" cy="-.8" r=".8"/><circle cx="4.6" cy="-1.1" r=".6"/><circle cx="6.2" cy="-1" r=".45"/>
+    </g>
+    <g id="spray">
+      <path d="M0 0C6-2 11-7 13-14" fill="none" stroke="#f0e6d4" stroke-width="1.1" stroke-linecap="round"/>
+      <path d="M0 0C6-2 11-7 13-14" fill="none" stroke="#3a2b20" stroke-width=".25" stroke-dasharray=".6 .9"/>
+      <use href="#leaf" transform="translate(4 -1.4) rotate(-70) scale(.75)"/>
+      <use href="#leaf" transform="translate(7 -3.4) rotate(20) scale(.7)"/>
+      <use href="#leaf" transform="translate(10 -7.4) rotate(-80) scale(.65)"/>
+      <use href="#leaf" transform="translate(12 -10.6) rotate(5) scale(.6)"/>
+      <use href="#picots" transform="translate(13.4 -14.6) rotate(-60)"/>
     </g>
   </defs>
-  <rect width="60" height="60" fill="url(#mesh)"/>
-  <g stroke="#efe5d3" stroke-width=".9" fill="none" stroke-linecap="round">
-    <path d="M15 15C24 20 28 32 45 45"/>
-    <path d="M45 15C38 22 32 22 24 33"/>
-    <path d="M0 45C6 42 10 40 15 45M45 0C42 6 40 10 45 15"/>
+
+  <rect width="100" height="100" fill="url(#net)"/>
+
+  <!-- rinceaux reliant les motifs (se raccordent d'un carreau à l'autre) -->
+  <g fill="none" stroke="#f0e6d4" stroke-width="1.3" stroke-linecap="round">
+    <path d="M25 25C40 30 42 45 50 50S60 70 75 75"/>
+    <path d="M75 75C88 80 95 92 100 100M0 0C5 8 12 20 25 25"/>
+    <path d="M75 25C66 32 58 40 50 50S34 68 25 75"/>
   </g>
-  <use href="#flower" x="15" y="15"/>
-  <use href="#flower" x="45" y="45"/>
-  <use href="#flower" transform="translate(45 15) scale(.55)"/>
-  <use href="#flower" transform="translate(15 45) scale(.55)"/>
-  <use href="#leaf" x="29" y="29" transform="rotate(-40 29 29)"/>
-  <use href="#leaf" x="33" y="24" transform="rotate(130 33 24)"/>
-  <use href="#leaf" x="36" y="38" transform="rotate(35 36 38)"/>
-  <use href="#dots" x="26" y="8"/>
-  <use href="#dots" x="52" y="30" transform="rotate(90 52 30)"/>
-  <use href="#dots" x="6" y="28"/>
-  <use href="#dots" x="32" y="54"/>
+  <g fill="none" stroke="#3a2b20" stroke-width=".25" stroke-dasharray=".7 1">
+    <path d="M25 25C40 30 42 45 50 50S60 70 75 75"/>
+    <path d="M75 25C66 32 58 40 50 50S34 68 25 75"/>
+  </g>
+
+  <use href="#spray" transform="translate(40 36) rotate(-30)"/>
+  <use href="#spray" transform="translate(60 64) rotate(150)"/>
+  <use href="#spray" transform="translate(62 38) rotate(60)"/>
+  <use href="#spray" transform="translate(38 62) rotate(240)"/>
+
+  <use href="#rosette" transform="translate(25 25)"/>
+  <use href="#rosette" transform="translate(75 75)"/>
+  <use href="#rosette" transform="translate(75 25) scale(.62)"/>
+  <use href="#rosette" transform="translate(25 75) scale(.62)"/>
+
+  <use href="#picots" transform="translate(48 8)"/>
+  <use href="#picots" transform="translate(50 92) rotate(180)"/>
+  <use href="#picots" transform="translate(6 50) rotate(90)"/>
+  <use href="#picots" transform="translate(94 50) rotate(-90)"/>
+  <circle cx="50" cy="50" r="2.2" fill="#f0e6d4" stroke="#3a2b20" stroke-width=".3"/>
+  <circle cx="50" cy="50" r=".9" fill="#4a382b"/>
 </svg>
