@@ -18,7 +18,7 @@
   --display: "Cormorant Garamond", "EB Garamond", Georgia, serif;
   --caps: "Italiana", "Cormorant Garamond", serif;
   --script: "Pinyon Script", cursive;
-  --names: "Corinthia", "Pinyon Script", cursive;
+  --names: "Italiana", "Cormorant Garamond", serif;
 
   --ease: cubic-bezier(.65, 0, .35, 1);
   --ease-out: cubic-bezier(.22, 1, .36, 1);
@@ -169,7 +169,7 @@ a { color: inherit; }
   background: none;
   cursor: pointer;
   transform: translate(-50%, -50%);
-  filter: drop-shadow(0 6px 8px rgba(40, 30, 10, .35));
+  filter: drop-shadow(0 2px 1px rgba(30, 20, 10, .35)) drop-shadow(0 8px 10px rgba(40, 30, 10, .3));
   transition: transform .7s var(--ease), opacity .6s var(--ease);
   -webkit-tap-highlight-color: transparent;
 }
@@ -277,16 +277,16 @@ a { color: inherit; }
 .arch__names {
   margin: 0 0 2rem;
   font-family: var(--names);
-  font-weight: 700;
-  font-size: clamp(4.6rem, 22vw, 7.4rem);
-  line-height: .78;
-  letter-spacing: 0;
+  font-weight: 400;
+  font-size: clamp(3.5rem, 16.5vw, 5.8rem);
+  line-height: .98;
+  letter-spacing: .01em;
 }
 .arch__and {
-  font-family: var(--caps);
-  font-size: .32em;
-  line-height: 1.5;
-  opacity: .85;
+  font-family: var(--script);
+  font-size: .95em;
+  line-height: .8;
+  color: #e9dcb4;
 }
 .arch__names span { display: block; }
 .arch__n1 { transform: translateX(-8%); }
@@ -413,19 +413,33 @@ a { color: inherit; }
   background: var(--brown);
 }
 
+/* Cadre en dentelle : la photo du cadre sert de bordure (même largeur sur
+   les quatre côtés, motif répété). Le filtre rend le fond gris noir et la
+   dentelle crème ; le mode « screen » pose ensuite la dentelle sur le brun. */
 .lace {
-  padding: clamp(64px, 17vw, 120px) clamp(56px, 15vw, 120px) clamp(44px, 11vw, 90px);
-  background: url("images/lace.svg") 0 0 / clamp(96px, 27vw, 140px) repeat, #4a382b;
+  --b: clamp(64px, 16vw, 110px);
+  position: relative;
+  padding: calc(var(--b) + 4px);
+  background: #4e3a2b;
+  isolation: isolate;
+}
+.lace::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border: var(--b) solid transparent;
+  border-image: url("images/cadre-dentelle.jpg") 104 fill / var(--b) round;
+  filter: grayscale(1) contrast(2.6) sepia(.35) brightness(.96);
+  mix-blend-mode: screen;
 }
 
 .lace__panel {
   max-width: 560px;
   margin: 0 auto;
-  padding: clamp(2.5rem, 9vw, 4rem) .9rem;
+  padding: clamp(2rem, 8vw, 3.5rem) .6rem;
   text-align: center;
   color: var(--lace);
-  background: #4e3a2b;
-  box-shadow: 0 0 0 3px #4e3a2b, 0 0 0 5px rgba(239, 229, 211, .55), 0 0 26px 8px rgba(0, 0, 0, .35);
 }
 
 .step + .step { margin-top: 3.4rem; }

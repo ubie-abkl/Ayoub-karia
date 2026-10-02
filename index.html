@@ -10,7 +10,7 @@
   <meta property="og:description" content="Nous avons l'honneur de vous convier à notre mariage le 6 novembre 2026.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,500;1,600&family=Playfair+Display:ital,wght@1,400;1,500&family=Corinthia:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Italiana&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Italiana&family=Pinyon+Script&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="is-locked">
@@ -35,26 +35,51 @@
       <button class="seal" id="seal" type="button" aria-label="Ouvrir l'invitation">
         <svg viewBox="0 0 200 200" aria-hidden="true">
           <defs>
-            <radialGradient id="waxG" cx="38%" cy="32%" r="75%">
-              <stop offset="0" stop-color="#d9c27a"/>
-              <stop offset=".45" stop-color="#a88b44"/>
-              <stop offset="1" stop-color="#5f4c1d"/>
+            <radialGradient id="waxG" cx="36%" cy="30%" r="80%">
+              <stop offset="0" stop-color="#9a7656"/>
+              <stop offset=".38" stop-color="#6e5039"/>
+              <stop offset=".75" stop-color="#4e3a2b"/>
+              <stop offset="1" stop-color="#2c1f16"/>
             </radialGradient>
-            <radialGradient id="waxIn" cx="60%" cy="65%" r="70%">
-              <stop offset="0" stop-color="#8b7334"/>
-              <stop offset="1" stop-color="#b79c55"/>
+            <radialGradient id="waxIn" cx="62%" cy="68%" r="75%">
+              <stop offset="0" stop-color="#5c4331"/>
+              <stop offset=".7" stop-color="#4a3627"/>
+              <stop offset="1" stop-color="#3a2a1e"/>
             </radialGradient>
+            <filter id="waxTex" x="0" y="0" width="100%" height="100%">
+              <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/>
+              <feDiffuseLighting in="n" surfaceScale=".6" lighting-color="#fff" result="l">
+                <feDistantLight azimuth="225" elevation="55"/>
+              </feDiffuseLighting>
+              <feComposite in="l" in2="SourceGraphic" operator="in"/>
+            </filter>
+            <filter id="emboss">
+              <feGaussianBlur in="SourceAlpha" stdDeviation="1.1" result="b"/>
+              <feSpecularLighting in="b" surfaceScale="3" specularConstant=".7" specularExponent="18" lighting-color="#e8cfae" result="s">
+                <feDistantLight azimuth="225" elevation="40"/>
+              </feSpecularLighting>
+              <feComposite in="s" in2="SourceAlpha" operator="in" result="s2"/>
+              <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="s2"/></feMerge>
+            </filter>
+            <clipPath id="sealShape">
+              <path id="sealPath" d="M100 5c10 0 15 7 25 9 11 2 20-2 28 6 7 7 4 16 9 25 6 10 16 12 19 23 3 10-4 17-4 28s8 17 5 28c-3 10-14 11-19 20-6 10-2 19-10 27-8 7-17 3-27 8-10 6-13 16-25 17-11 1-16-8-26-11-11-3-20 2-29-5-8-7-5-17-11-26-6-8-16-10-19-21-3-10 4-17 4-28s-8-17-5-28c3-11 14-12 19-22 5-9 2-19 10-26 8-8 18-3 28-8C84 13 89 5 100 5Z"/>
+            </clipPath>
           </defs>
-          <path fill="url(#waxG)" d="M100 6c14 0 20 6 31 9s22 2 30 12 5 19 10 29 13 16 12 29-9 18-11 29 3 21-5 32-18 10-28 16-16 14-29 16-19-6-31-7-22 5-32-3-8-19-14-28-16-15-16-28 8-19 9-31-5-21 3-31 19-9 28-15S86 6 100 6Z"/>
-          <circle cx="100" cy="100" r="62" fill="url(#waxIn)"/>
-          <circle cx="100" cy="100" r="62" fill="none" stroke="#e6d397" stroke-opacity=".55" stroke-width="2"/>
-          <circle cx="100" cy="100" r="66" fill="none" stroke="#4d3d14" stroke-opacity=".35" stroke-width="3"/>
-          <g font-family="'Pinyon Script', cursive" font-size="64" text-anchor="middle">
-            <text x="101.5" y="120" fill="#4d3d14" fill-opacity=".6">C  A</text>
-            <text x="99" y="117.5" fill="#ecdca6" fill-opacity=".85">C  A</text>
-            <text x="100" y="119" fill="#a88b44">C  A</text>
+          <use href="#sealPath" fill="url(#waxG)"/>
+          <g clip-path="url(#sealShape)">
+            <rect width="200" height="200" filter="url(#waxTex)" opacity=".16"/>
           </g>
-          <ellipse cx="72" cy="48" rx="26" ry="10" fill="#fff" opacity=".18" transform="rotate(-28 72 48)"/>
+          <!-- empreinte du cachet : creux légèrement en retrait -->
+          <circle cx="100" cy="101" r="60" fill="url(#waxIn)"/>
+          <circle cx="100" cy="101" r="60" fill="none" stroke="#24180f" stroke-opacity=".55" stroke-width="3.5"/>
+          <circle cx="101.5" cy="103" r="61.5" fill="none" stroke="#b28c66" stroke-opacity=".45" stroke-width="1.6"/>
+          <circle cx="100" cy="101" r="52" fill="none" stroke="#b28c66" stroke-opacity=".35" stroke-width="1"/>
+          <g font-family="'Pinyon Script', cursive" font-size="50" text-anchor="middle" filter="url(#emboss)">
+            <text x="101.2" y="118.5" fill="#1f150e" fill-opacity=".7">C  A</text>
+            <text x="100" y="117" fill="#8a6849">C  A</text>
+          </g>
+          <ellipse cx="66" cy="42" rx="24" ry="8" fill="#fff" opacity=".13" transform="rotate(-32 66 42)"/>
+          <ellipse cx="150" cy="160" rx="18" ry="5" fill="#000" opacity=".12" transform="rotate(-38 150 160)"/>
         </svg>
       </button>
     </div>
@@ -157,7 +182,7 @@
           </div>
         </fieldset>
         <div class="field" id="guestsField">
-          <label for="rsvpGuests">Nombre de personnes (vous compris)</label>
+          <label for="rsvpGuests">Nombre de personnes (vous y compris)</label>
           <select id="rsvpGuests" name="guests">
             <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
           </select>
@@ -167,7 +192,7 @@
           <textarea id="rsvpMessage" name="message" rows="3"></textarea>
         </div>
         <p class="rsvp__error" id="rsvpError" role="alert" hidden></p>
-        <button class="rsvp__submit" id="rsvpSubmit" type="submit">Envoyer ma réponse</button>
+        <button class="rsvp__submit" id="rsvpSubmit" type="submit">Valider</button>
       </form>
       <div class="rsvp__thanks" id="rsvpThanks" hidden>
         <span class="footer__mono">Merci</span>
