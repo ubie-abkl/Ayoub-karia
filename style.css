@@ -18,7 +18,7 @@
   --display: "Cormorant Garamond", "EB Garamond", Georgia, serif;
   --caps: "Italiana", "Cormorant Garamond", serif;
   --script: "Pinyon Script", cursive;
-  --names: "Italiana", "Cormorant Garamond", serif;
+  --names: "Elsie", "Italiana", "Cormorant Garamond", serif;
 
   --ease: cubic-bezier(.65, 0, .35, 1);
   --ease-out: cubic-bezier(.22, 1, .36, 1);
@@ -278,14 +278,15 @@ a { color: inherit; }
   margin: 0 0 2rem;
   font-family: var(--names);
   font-weight: 400;
-  font-size: clamp(3.5rem, 16.5vw, 5.8rem);
-  line-height: .98;
-  letter-spacing: .01em;
+  font-size: clamp(3.3rem, 15.5vw, 5.4rem);
+  line-height: 1;
+  letter-spacing: 0;
 }
 .arch__and {
-  font-family: var(--script);
-  font-size: .95em;
-  line-height: .8;
+  font-family: var(--names);
+  font-weight: 400;
+  font-size: .5em;
+  line-height: 1.2;
   color: #e9dcb4;
 }
 .arch__names span { display: block; }
