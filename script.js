@@ -38,7 +38,6 @@
     setTimeout(function () { intro.setAttribute("hidden", ""); }, 1200);
   }
 
-  document.getElementById("openBtn").addEventListener("click", openEnvelope);
   document.getElementById("seal").addEventListener("click", openEnvelope);
 
   /* ---------- Apparition au défilement ---------- */
