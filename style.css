@@ -3,8 +3,8 @@
    ========================================================= */
 :root {
   --olive: #857a45;
-  --beige: #ede8d0;
-  --brown-dark: #4e3a2b;
+  --beige: #dac8a9;
+  --brown-dark: #7a5a3a; /* même brun que le titre PROGRAMME */
   --olive-dark: #5f5730;
   --cream: #f9f5ee;
   --ivory: #fffdf6;
@@ -359,14 +359,14 @@ a { color: inherit; }
   font-size: clamp(2.8rem, 12vw, 4.5rem);
   letter-spacing: .02em;
   text-transform: uppercase;
-  color: #7a5a3a;
+  color: var(--brown-dark);
   line-height: 1;
 }
 .prog-title__script {
   display: inline-block;
   font-family: var(--script);
   font-size: clamp(1.6rem, 7vw, 2.4rem);
-  color: #7a5a3a;
+  color: var(--brown-dark);
   transform: rotate(-6deg) translate(-4%, -10%);
 }
 
