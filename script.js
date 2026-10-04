@@ -133,7 +133,7 @@
   });
 
   /* ---------- Compte à rebours ---------- */
-  var target = new Date("2026-11-06T16:00:00+01:00").getTime();
+  var target = new Date("2026-11-06T15:30:00+01:00").getTime();
   var units = {};
   document.querySelectorAll("#timer [data-unit]").forEach(function (el) {
     units[el.getAttribute("data-unit")] = el;
