@@ -59,7 +59,7 @@
   /* ---------- Formulaire de présence ----------
      Les réponses partent dans un Google Sheets : collez dans FORM_ENDPOINT
      l'URL de l'application Web Apps Script (voir google-apps-script.gs). */
-  var FORM_ENDPOINT = "";
+  var FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbxrbOZdFxDcIyDqi0ccH0LliYHYACRD_DxQHFgpM7ruQXjmvWHpAM8_7VWEptZUPRpWNQ/exec";
 
   var form = document.getElementById("rsvpForm");
   var errorBox = document.getElementById("rsvpError");
