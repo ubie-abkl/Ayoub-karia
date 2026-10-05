@@ -96,6 +96,14 @@
     }).then(function () { return true; });
   }
 
+  // Au-delà de 20 s sans réponse, on affiche une erreur plutôt qu'un
+  // chargement sans fin.
+  function withTimeout(promise, ms) {
+    return Promise.race([promise, new Promise(function (_, reject) {
+      setTimeout(function () { reject(new Error("timeout")); }, ms);
+    })]);
+  }
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     errorBox.hidden = true;
@@ -114,8 +122,7 @@
     };
 
     submitBtn.disabled = true;
-    saveToEndpoint(data)
-      .then(function (ok) { return ok || saveToArtifact(data); })
+    withTimeout(saveToEndpoint(data).then(function (ok) { return ok || saveToArtifact(data); }), 20000)
       .then(function (ok) {
         if (!ok) throw new Error("no backend");
         form.hidden = true;
