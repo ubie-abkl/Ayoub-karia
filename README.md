@@ -9,8 +9,16 @@ Site d'invitation statique (HTML/CSS/JS, aucune dépendance).
 
 Ouvrir `index.html` dans un navigateur, ou publier via GitHub Pages / Netlify.
 
-## Formulaire de présence
+## Formulaire de présence → Google Sheets
 
-Sur le site publié, créez un formulaire gratuit sur https://formspree.io puis collez son
-adresse dans `FORM_ENDPOINT` en haut de la partie « Formulaire de présence » de `script.js`.
-Chaque réponse arrive alors par e-mail.
+Les réponses arrivent dans un Google Sheets (Horodateur, Nom & Prénom,
+Serez-vous présent(e) ?, Nombre de personnes, Petit mot).
+
+1. Créez un Google Sheets vide, puis Extensions > Apps Script.
+2. Collez le contenu de `google-apps-script.gs` et enregistrez.
+3. Déployer > Nouveau déploiement > Application Web
+   (Exécuter en tant que : Moi · Qui a accès : Tout le monde), puis autorisez.
+4. Copiez l'URL qui se termine par `/exec` dans `FORM_ENDPOINT` en haut de la
+   partie « Formulaire de présence » de `script.js`.
+
+Le formulaire ne fonctionne que sur le site publié (GitHub Pages, Netlify…).

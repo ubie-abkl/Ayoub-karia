@@ -57,9 +57,8 @@
   }
 
   /* ---------- Formulaire de présence ----------
-     Sur le site publié (GitHub Pages, Netlify…), renseignez FORM_ENDPOINT
-     avec l'adresse d'un formulaire Formspree (https://formspree.io) :
-     chaque réponse vous arrive alors par e-mail. */
+     Les réponses partent dans un Google Sheets : collez dans FORM_ENDPOINT
+     l'URL de l'application Web Apps Script (voir google-apps-script.gs). */
   var FORM_ENDPOINT = "";
 
   var form = document.getElementById("rsvpForm");
@@ -88,14 +87,13 @@
 
   function saveToEndpoint(data) {
     if (!FORM_ENDPOINT) return Promise.resolve(false);
+    // Google Apps Script ne renvoie pas d'en-têtes CORS lisibles : on envoie
+    // en mode « no-cors » ; seule une panne réseau fait échouer l'envoi.
     return fetch(FORM_ENDPOINT, {
       method: "POST",
-      headers: { "Content-Type": "application/json", "Accept": "application/json" },
-      body: JSON.stringify(data)
-    }).then(function (res) {
-      if (!res.ok) throw new Error("http " + res.status);
-      return true;
-    });
+      mode: "no-cors",
+      body: new URLSearchParams(data)
+    }).then(function () { return true; });
   }
 
   form.addEventListener("submit", function (e) {
