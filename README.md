@@ -1,4 +1,4 @@
-# Mariage Cheima & Amine — 06.11.2026
+# Mariage Cheïma & Amine — 06.11.2026
 
 Site d'invitation statique (HTML/CSS/JS, aucune dépendance).
 

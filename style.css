@@ -1,10 +1,11 @@
 /* =========================================================
-   Mariage Cheima & Amine — 06.11.2026
+   Mariage Cheïma & Amine — 06.11.2026
    ========================================================= */
 :root {
   --olive: #857a45;
-  --beige: #dac8a9;
-  --brown-dark: #7a5a3a; /* même brun que le titre PROGRAMME */
+  --beige: #ebe1d1;
+  --brown-dark: #4e3a2b; /* même brun que le programme en dentelle */
+  --brown-title: #7a5a3a;
   --olive-dark: #5f5730;
   --cream: #f9f5ee;
   --ivory: #fffdf6;
@@ -359,14 +360,14 @@ a { color: inherit; }
   font-size: clamp(2.8rem, 12vw, 4.5rem);
   letter-spacing: .02em;
   text-transform: uppercase;
-  color: var(--brown-dark);
+  color: var(--brown-title);
   line-height: 1;
 }
 .prog-title__script {
   display: inline-block;
   font-family: var(--script);
   font-size: clamp(1.6rem, 7vw, 2.4rem);
-  color: var(--brown-dark);
+  color: var(--brown-title);
   transform: rotate(-6deg) translate(-4%, -10%);
 }
 
@@ -535,13 +536,13 @@ a { color: inherit; }
   font-size: 1rem;
   letter-spacing: .25em;
   text-transform: uppercase;
-  color: var(--brown-dark);
-  background: var(--beige);
+  color: var(--beige);
+  background: var(--brown-dark);
   border: 1.5px solid var(--brown-dark);
   cursor: pointer;
   transition: background .25s;
 }
-.rsvp__submit:hover { background: var(--brown-dark); color: var(--beige); }
+.rsvp__submit:hover { background: #3a2a1f; }
 .rsvp__submit:disabled { opacity: .6; cursor: wait; }
 .rsvp__submit:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 .rsvp__thanks p { margin: .4rem 0 0; font-family: var(--display); font-style: italic; font-size: 1.25rem; }
@@ -552,8 +553,8 @@ a { color: inherit; }
 .countdown {
   padding: 12vh 6vw;
   text-align: center;
-  color: var(--brown-dark);
-  background: var(--beige);
+  color: var(--beige);
+  background: var(--brown-dark);
 }
 .countdown__kicker {
   margin: 0 0 1.6rem;
@@ -569,7 +570,7 @@ a { color: inherit; }
   margin: 0 auto;
 }
 .countdown__grid div { display: flex; flex-direction: column; }
-.countdown__grid div + div { border-left: 1px solid rgba(78, 58, 43, .3); }
+.countdown__grid div + div { border-left: 1px solid rgba(235, 225, 209, .3); }
 .countdown__grid span {
   font-family: var(--display);
   font-size: clamp(2.2rem, 10vw, 3.4rem);
